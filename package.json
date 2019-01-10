@@ -8,6 +8,8 @@
     "dev:build:server": "webpack --config webpack.server.js --watch",
     "dev:run:server":"nodemon --watch server-build --exec node server-build/bundle.js ",
 
+    "dev:build:client":"webpack --config webpack.client.js --watch",
+
     "test": "./node_modules/.bin/jest --watchAll",
     "start": "webpack-dev-server --debug --devtool cheap-module-source-map --output-pathinfo --history-api-fallback --hot --inline --progress --colors --open",
     "build": "webpack -p --progress --colors"

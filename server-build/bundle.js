@@ -14790,9 +14790,11 @@ var React = __webpack_require__(79);
 var ReactDOMServer = __webpack_require__(428);
 var Home_1 = __webpack_require__(435);
 var app = express();
+app.use(express.static('public'));
 app.get('/', function (req, res) {
     var content = ReactDOMServer.renderToString(React.createElement(Home_1.Home, null));
-    res.send(content);
+    var html = "<html>\n    <head>\n\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\n        </head>\n<body>\n<div id=\"root\">" + content + "</div>\n<script src=\"bundle.js\"></script>\n</body>\n    </html>\n    \n    ";
+    res.send(html);
 });
 app.listen(3000, function () {
     console.log("listining on port 3000");
@@ -28373,7 +28375,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(79);
 exports.Home = function (_a) {
     var props = __rest(_a, []);
-    return React.createElement("div", null, "I'm the home component new");
+    return (React.createElement("div", null,
+        React.createElement("div", null, "I'm the home component new"),
+        React.createElement("button", { onClick: function () { console.log('Hi from the home component click'); } }, "Click here")));
 };
 
 
