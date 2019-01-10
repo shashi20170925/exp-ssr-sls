@@ -28373,7 +28373,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(79);
 exports.Home = function (_a) {
     var props = __rest(_a, []);
-    return React.createElement("div", null, "I'm the home component");
+    return React.createElement("div", null, "I'm the home component new");
 };
 
 
