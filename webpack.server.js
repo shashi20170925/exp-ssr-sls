@@ -1,5 +1,6 @@
 const merge=require('webpack-merge');
 const webpackBase=require('./webpack.base.js');
+const webpackNodeExternals=require('webpack-node-externals');
 
 const Path = require('path');
 const isProduction = process.argv.indexOf('-p') >= 0;
@@ -25,7 +26,8 @@ const config=
     // Fix webpack's default behavior to not load packages with jsnext:main module
     // https://github.com/Microsoft/TypeScript/issues/11677
     mainFields: ['browser', 'main']
-  }  
+  }  ,
+  externals:[webpackNodeExternals()],
 };
 
 
