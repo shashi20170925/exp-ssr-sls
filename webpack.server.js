@@ -19,7 +19,7 @@ module.exports = {
     publicPath: outPath,
     filename: 'bundle.js',
   },
-  target: 'web',
+  target: 'node',
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
     // Fix webpack's default behavior to not load packages with jsnext:main module
@@ -75,32 +75,14 @@ module.exports = {
       { test: /\.jpg$/, use: 'file-loader' },
     ],
   },
-  plugins: [
 
-    new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': isProduction === true ? JSON.stringify('production') : JSON.stringify('development')
-    }),
-       new Webpack.optimize.CommonsChunkPlugin({
-           name: 'vendor',
-           filename: 'vendor.bundle.js',
-           minChunks: Infinity
-       }),
-    new Webpack.optimize.AggressiveMergingPlugin(),
-    new ExtractTextPlugin({
-      filename: 'styles.css',
-      disable: !isProduction
-    }),
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
-  ],
   devServer: {
     contentBase: sourcePath,
     hot: true,
     stats: {
       warnings: false
     },
-    port: 1949
+    port: 1901
 
   },
   node: {

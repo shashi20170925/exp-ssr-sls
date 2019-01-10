@@ -1,13 +1,15 @@
-const express = require('express');
-const React = require('react');
-const renderToString = require('react-dom/server');
-const Home = require('./client/components/Home').default;
+import * as express from 'express';
+import * as React from 'react';
+import * as ReactDOMServer from 'react-dom/server';
+import { Home } from './client/components/Home';
 const app = express();
 
 app.get('/', (req, res) => {
-    const content = renderToString(<Home />);
+    const content = ReactDOMServer.renderToString(<Home />);
     res.send(content);
 });
 app.listen(3000, () => {
     console.log("listining on port 3000");
 })
+
+module.exports = app;

@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-const  Home = () => {
+export const Home = ({ ...props }: any) => {
     return <div>I'm the home component</div>
 }
-export default Home;
+
