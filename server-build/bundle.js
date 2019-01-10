@@ -28377,7 +28377,7 @@ exports.Home = function (_a) {
     var props = __rest(_a, []);
     return (React.createElement("div", null,
         React.createElement("div", null, "I'm the home component new"),
-        React.createElement("button", { onClick: function () { console.log('Hi from the home component click'); } }, "Click here")));
+        React.createElement("button", { onClick: function () { console.log('Hi from the home component click22'); } }, "Click here")));
 };
 
 
