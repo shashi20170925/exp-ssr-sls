@@ -28,5 +28,15 @@ app.listen(3000, () => {
     console.log("listining on port 3000");
 })
 
-export const handler=serverless(app);
-//module.exports = app;
+
+module.exports.handler = serverless(app);
+
+
+ const handler=(event,context,callback)=>{
+    console.log("the event",event );
+    console.log("the context",context );
+
+    serverless(app);
+ 
+};
+module.exports.handler = handler;
