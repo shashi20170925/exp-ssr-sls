@@ -1,7 +1,6 @@
 import * as express from 'express';
 import * as React from 'react';
 import * as ReactDOMServer from 'react-dom/server';
-import serverless from "serverless-http";
 
 import { Home } from './client/components/Home';
 const app = express();
@@ -27,16 +26,17 @@ app.get('/one', (req, res) => {
 app.listen(3000, () => {
     console.log("listining on port 3000");
 })
+module.exports = app;
+
+// module.exports.handler = serverless(app);
 
 
-module.exports.handler = serverless(app);
+//  const handler=(event,context,callback)=>{
+//     console.log("the event",event );
+//     console.log("the context",context );
 
-
- const handler=(event,context,callback)=>{
-    console.log("the event",event );
-    console.log("the context",context );
-
-    serverless(app);
+//     serverless(app);
  
-};
-module.exports.handler = handler;
+// };
+// module.exports.handler = handler;
+

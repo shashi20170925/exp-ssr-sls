@@ -1,6 +1,17 @@
 'use strict';
+const serverless = require('serverless-http');
+const app=require('./server-build/bundle').app;
 //const app=require('./server-build/bundle');
 module.exports.hello = async (event, context) => {
+  const handler = serverless(app);
+module.exports.handler = async (event, context) => {
+    console.log(" in the serverless call event",event);
+    console.log(" in the serverless call event",context);
+
+  return await handler(event, context);
+};
+
+
   return {
 
     statusCode: 200,

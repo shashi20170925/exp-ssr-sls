@@ -86,8 +86,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = __webpack_require__(3);
 var React = __webpack_require__(0);
 var ReactDOMServer = __webpack_require__(4);
-var serverless_http_1 = __webpack_require__(5);
-var Home_1 = __webpack_require__(6);
+var Home_1 = __webpack_require__(5);
 var app = express();
 app.use(express.static('public'));
 app.get('/one', function (req, res) {
@@ -98,12 +97,7 @@ app.get('/one', function (req, res) {
 app.listen(3000, function () {
     console.log("listining on port 3000");
 });
-var handler = function (event, context, callback) {
-    console.log("the event", event);
-    console.log("the context", context);
-    serverless_http_1.default(app);
-};
-module.exports.handler = handler;
+module.exports = app;
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } /* eslint-disable camelcase, no-undef */ var webpackExports = typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__ : module.exports; /* eslint-enable camelcase, no-undef */ if (typeof webpackExports === 'function') { __REACT_HOT_LOADER__.register(webpackExports, 'module.exports', "C:\\JSPOC\\serverless\\own-sample\\src\\index.tsx"); return; } /* eslint-disable no-restricted-syntax */ for (var key in webpackExports) { /* eslint-enable no-restricted-syntax */ if (!Object.prototype.hasOwnProperty.call(webpackExports, key)) { continue; } var namedExport = void 0; try { namedExport = webpackExports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\JSPOC\\serverless\\own-sample\\src\\index.tsx"); } } })();
@@ -122,12 +116,6 @@ module.exports = require("react-dom/server");
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("serverless-http");
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -56,7 +56,7 @@ provider:
 
 functions:
   hello:
-    handler: ./server-build/bundle.handler
+    handler: server-build/bundle.hello
     events:
           - http:
               path: '/'
