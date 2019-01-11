@@ -1,8 +1,7 @@
-.vscode
-.DS_STORE
+# package directories
 node_modules
-.module-cache
-*.log*
-build
-dist
+jspm_packages
+
+# Serverless directories
+.serverless
 src_old

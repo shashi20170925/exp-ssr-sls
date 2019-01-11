@@ -12,7 +12,7 @@ const config=
  {
   context: sourcePath,
   entry: {
-      main: ['babel-polyfill', './index.tsx']
+      main: [ './index.tsx']
    
   },
   output: {
