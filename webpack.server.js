@@ -12,7 +12,7 @@ const config=
  {
   context: __dirname,
   entry: {
-      main: [ './handler.js']
+      main: [ './handler.ts']
 
   },
   output: {

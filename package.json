@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Gallup Access - Access Code Management",
-  "main": "index.js",
+  "main": "handler.ts",
   "scripts": {
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:run-server": "nodemon --watch server-build --exec node server-build/bundle.js ",
