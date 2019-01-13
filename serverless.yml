@@ -21,6 +21,10 @@ provider:
   name: aws
   runtime: nodejs8.10
 
+# you can add packaging information here
+# package:
+# artifact: dist.zip
+
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -56,12 +60,12 @@ provider:
 
 functions:
   hello:
-    handler: server-build/bundle.hello
+    handler: server-build/bundle_server.hello
     events:
           - http:
               path: '/'
               method: any
-          
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
