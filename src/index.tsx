@@ -5,7 +5,7 @@ const app = express();
 app.use(express.static('public'));
 app.get('*', (req, res) => {
    
-    res.send(renderer());
+    res.send(renderer(req.path));
 });
 app.listen(3000, () => {
     console.log("listining on port 3000");

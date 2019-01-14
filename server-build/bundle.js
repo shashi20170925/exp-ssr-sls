@@ -95,7 +95,7 @@ var renderer_1 = __webpack_require__(8);
 var app = express();
 app.use(express.static('public'));
 app.get('*', function (req, res) {
-    res.send(renderer_1.default());
+    res.send(renderer_1.default(req.path));
 });
 app.listen(3000, function () {
     console.log("listining on port 3000");
@@ -154,14 +154,41 @@ exports.Home = function (_a) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
 var server_1 = __webpack_require__(5);
-var Home_1 = __webpack_require__(6);
-exports.default = (function () {
-    var content = server_1.renderToString(React.createElement(Home_1.Home, null));
+var react_router_dom_1 = __webpack_require__(11);
+var Routes_1 = __webpack_require__(10);
+exports.default = (function (path) {
+    var content = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: path, context: {} },
+        React.createElement(Routes_1.default, null)));
     return "<html>\n    <head>\n\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\n        </head>\n<body>\n<div id=\"root\">" + content + "</div>\n<script src=\"bundle.js\"></script>\n</body>\n    </html>\n    \n    ";
 });
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } /* eslint-disable camelcase, no-undef */ var webpackExports = typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__ : module.exports; /* eslint-enable camelcase, no-undef */ if (typeof webpackExports === 'function') { __REACT_HOT_LOADER__.register(webpackExports, 'module.exports', "C:\\JSPOC\\serverless\\own-sample\\src\\helpers\\renderer.tsx"); return; } /* eslint-disable no-restricted-syntax */ for (var key in webpackExports) { /* eslint-enable no-restricted-syntax */ if (!Object.prototype.hasOwnProperty.call(webpackExports, key)) { continue; } var namedExport = void 0; try { namedExport = webpackExports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\JSPOC\\serverless\\own-sample\\src\\helpers\\renderer.tsx"); } } })();
+
+/***/ }),
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(0);
+var react_router_dom_1 = __webpack_require__(11);
+var Home_1 = __webpack_require__(6);
+exports.default = (function () {
+    return (React.createElement("div", null,
+        React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: Home_1.Home })));
+});
+
+
+ ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } /* eslint-disable camelcase, no-undef */ var webpackExports = typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__ : module.exports; /* eslint-enable camelcase, no-undef */ if (typeof webpackExports === 'function') { __REACT_HOT_LOADER__.register(webpackExports, 'module.exports', "C:\\JSPOC\\serverless\\own-sample\\src\\client\\Routes.tsx"); return; } /* eslint-disable no-restricted-syntax */ for (var key in webpackExports) { /* eslint-enable no-restricted-syntax */ if (!Object.prototype.hasOwnProperty.call(webpackExports, key)) { continue; } var namedExport = void 0; try { namedExport = webpackExports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\JSPOC\\serverless\\own-sample\\src\\client\\Routes.tsx"); } } })();
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
 
 /***/ })
 /******/ ]);
