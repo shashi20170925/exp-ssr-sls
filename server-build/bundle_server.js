@@ -75,9 +75,13 @@ module.exports = __webpack_require__(1);
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
+var serverless = __webpack_require__(2);
+var express = __webpack_require__(3);
+var app = express();
+var responseMarkup = "<html>\n      <head>\n     \n      <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\n          </head>\n<body>\n<div id=\"root\"> \n  this is from server\n  </div>\n\n \n  <script src=\"https://s3.ca-central-1.amazonaws.com/mybuckettoday1/one/bundle.js\"></script>\n  </body>\n      </html>\n   ";
+app.get("/", function (req, res) {
+    res.status(200).res.send("In the express response");
+});
 module.exports.hello = function (event, context, callback) {
     var response = {
         statusCode: 200,
@@ -86,6 +90,17 @@ module.exports.hello = function (event, context, callback) {
         })
     };
     callback(null, response);
+};
+module.exports.awesomesauce = function (event, context, callback) {
+    serverless(app);
+    context.succeed({
+        statusCode: 200,
+        headers: {
+            "Content-Type": "text/html",
+            "Access-Control-Allow-Origin": "*",
+        },
+        body: responseMarkup,
+    });
 };
 module.exports.addTodo = function (event, context, callback) {
     var response = {
@@ -99,6 +114,18 @@ module.exports.addTodo = function (event, context, callback) {
 
 
  ;(function register() { /* react-hot-loader/webpack */ if (process.env.NODE_ENV !== 'production') { if (typeof __REACT_HOT_LOADER__ === 'undefined') { return; } /* eslint-disable camelcase, no-undef */ var webpackExports = typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__ : module.exports; /* eslint-enable camelcase, no-undef */ if (typeof webpackExports === 'function') { __REACT_HOT_LOADER__.register(webpackExports, 'module.exports', "C:\\JSPOC\\serverless\\own-sample\\handler.ts"); return; } /* eslint-disable no-restricted-syntax */ for (var key in webpackExports) { /* eslint-enable no-restricted-syntax */ if (!Object.prototype.hasOwnProperty.call(webpackExports, key)) { continue; } var namedExport = void 0; try { namedExport = webpackExports[key]; } catch (err) { continue; } __REACT_HOT_LOADER__.register(namedExport, key, "C:\\JSPOC\\serverless\\own-sample\\handler.ts"); } } })();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("serverless-http");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
 
 /***/ })
 /******/ ]);
