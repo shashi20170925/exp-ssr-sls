@@ -94,7 +94,7 @@ var express = __webpack_require__(4);
 var renderer_1 = __webpack_require__(8);
 var app = express();
 app.use(express.static('public'));
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
     res.send(renderer_1.default());
 });
 app.listen(3000, function () {
