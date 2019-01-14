@@ -6,7 +6,7 @@ import { Home } from './client/components/Home';
 const app = express();
 
 app.use(express.static('public'));
-app.get('/one', (req, res) => {
+app.get('/', (req, res) => {
     const content = ReactDOMServer.renderToString(<Home />);
     const html=`<html>
     <head>

@@ -10,15 +10,17 @@ const sourcePath = Path.join(__dirname, './src');
 const config=
 
  {
-  context: sourcePath,
+  context: __dirname,
   entry: {
-      main: ['babel-polyfill', './index.tsx']
-   
+      main: [ './handler.ts']
+
   },
   output: {
     path: outPath,
     publicPath: outPath,
-    filename: 'bundle.js',
+    filename: 'bundle_server.js',
+    libraryTarget: 'commonjs2',
+    library: 'bundle_server'
   },
   target: 'node',
   resolve: {
@@ -32,4 +34,3 @@ const config=
 
 
 module.exports=merge(webpackBase, config);
-
